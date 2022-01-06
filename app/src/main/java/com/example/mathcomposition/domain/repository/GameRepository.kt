@@ -13,5 +13,5 @@ interface GameRepository {
 
     fun getGameSettings(level: Level) : GameSettings
 
-    fun doNothing()
+
 }
