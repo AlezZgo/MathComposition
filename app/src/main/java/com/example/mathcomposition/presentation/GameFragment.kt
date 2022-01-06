@@ -1,14 +1,17 @@
 package com.example.mathcomposition.presentation
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.mathcomposition.R
+import androidx.fragment.app.Fragment
+import com.example.mathcomposition.databinding.FragmentGameBinding
 
 class GameFragment : Fragment() {
+
+    private var _binding: FragmentGameBinding? = null
+    private val binding: FragmentGameBinding
+        get() = _binding ?: throw RuntimeException("FragmentGameBinding = null")
 
     companion object {
         fun newInstance() = GameFragment()
@@ -20,7 +23,13 @@ class GameFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_game, container, false)
+        _binding = FragmentGameBinding.inflate(inflater, container, false)
+        return _binding?.root
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 }

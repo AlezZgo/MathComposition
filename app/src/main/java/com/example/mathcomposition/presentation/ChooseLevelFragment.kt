@@ -1,14 +1,17 @@
 package com.example.mathcomposition.presentation
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.mathcomposition.R
+import androidx.fragment.app.Fragment
+import com.example.mathcomposition.databinding.FragmentChooseLevelBinding
 
 class ChooseLevelFragment : Fragment() {
+
+    private var _binding: FragmentChooseLevelBinding? = null
+    private val binding: FragmentChooseLevelBinding
+        get() = _binding ?: throw RuntimeException("FragmentGameFinished = null")
 
     companion object {
         fun newInstance() = ChooseLevelFragment()
@@ -20,7 +23,13 @@ class ChooseLevelFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_choose_level, container, false)
+        _binding = FragmentChooseLevelBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 }

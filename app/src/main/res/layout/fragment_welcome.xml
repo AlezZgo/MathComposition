@@ -51,7 +51,7 @@
 
     <Button
         android:id="@+id/btn_getIt"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:text="@string/got_it"
         android:textSize="20sp"
