@@ -74,12 +74,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="6dp"
-        android:text="Right answers %s (min %b)"
+        android:text="@string/progress_answers"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/pb_answers_progress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ProgressBar
         android:id="@+id/pb_answers_progress"
