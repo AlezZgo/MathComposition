@@ -11,5 +11,5 @@
     <string name="choose_level">Choose level</string>
     <string name="try_again">Try again</string>
     <string name="smile">smile</string>
-    <string name="progress_answers">Right answers %s (min %b)</string>
+    <string name="progress_answers">Right answers %s (min %s)</string>
 </resources>
