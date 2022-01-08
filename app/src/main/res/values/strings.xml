@@ -12,4 +12,8 @@
     <string name="try_again">Try again</string>
     <string name="smile">smile</string>
     <string name="progress_answers">Right answers %s (min %s)</string>
+    <string name="your_score">Your score %s</string>
+    <string name="your_percent">Your percent %s</string>
+    <string name="necessary_required_percent">Necessary required percent: %s</string>
+    <string name="necessary_right_answers_count">Necessary right answers count: %s</string>
 </resources>
