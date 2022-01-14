@@ -9,6 +9,8 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.mathcomposition.R
 import com.example.mathcomposition.databinding.FragmentGameBinding
 import com.example.mathcomposition.domain.entity.GameResult
@@ -16,16 +18,17 @@ import com.example.mathcomposition.domain.entity.Level
 
 class GameFragment : Fragment() {
 
-    private lateinit var level: Level
+    private val args by navArgs<GameFragmentArgs>()
+
     private val viewModelFactory by lazy {
         GameViewModelFactory(
-            level,requireActivity().application
+            args.level,requireActivity().application
         )
     }
 
-    private var _binding: FragmentGameBinding? = null
-    private val binding: FragmentGameBinding
-        get() = _binding ?: throw RuntimeException("FragmentGameBinding = null")
+    private val viewModel by lazy {
+        ViewModelProvider(this, viewModelFactory)[GameViewModel::class.java]
+    }
 
     private val tvOptions by lazy {
         mutableListOf<TextView>().apply {
@@ -38,33 +41,9 @@ class GameFragment : Fragment() {
         }
     }
 
-    private val viewModel by lazy {
-        ViewModelProvider(this, viewModelFactory)[GameViewModel::class.java]
-    }
-
-    companion object {
-        private const val KEY_LEVEL = "level"
-        const val NAME = "GameFragment"
-
-        fun newInstance(level: Level): GameFragment {
-            return GameFragment().apply {
-                arguments = Bundle().apply {
-                    putParcelable(KEY_LEVEL, level)
-                }
-            }
-        }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        parseArgs()
-    }
-
-    private fun parseArgs() {
-        requireArguments().getParcelable<Level>(KEY_LEVEL)?.let {
-            level = it
-        }
-    }
+    private var _binding: FragmentGameBinding? = null
+    private val binding: FragmentGameBinding
+        get() = _binding ?: throw RuntimeException("FragmentGameBinding = null")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -140,14 +119,8 @@ class GameFragment : Fragment() {
     }
 
 
-    fun launchGameFinishedFragment(gameResult: GameResult) {
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(
-                R.id.main_container,
-                GameFinishedFragment.newInstance(gameResult)
-            )
-            .addToBackStack(null)
-            .commit()
+    private fun launchGameFinishedFragment(gameResult: GameResult) {
+        findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameFinishedFragment(gameResult))
     }
 
     override fun onDestroy() {
