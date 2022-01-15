@@ -1,46 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="6dp"
-    android:orientation="vertical">
+<layout>
 
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/choose_level"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/btn_test_level"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="6dp"
-        android:text="@string/test" />
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_easy_level"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="6dp"
-        android:backgroundTint="#8BC34A"
-        android:text="@string/easy" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_level"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btn_normal_level"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="6dp"
-        android:backgroundTint="#FF9800"
-        android:text="@string/normal" />
+        <Button
+            android:id="@+id/btn_test_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:text="@string/test" />
 
-    <Button
-        android:id="@+id/btn_hard_level"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="6dp"
-        android:backgroundTint="#F44336"
-        android:text="@string/hard" />
-</LinearLayout>
+        <Button
+            android:id="@+id/btn_easy_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:backgroundTint="#8BC34A"
+            android:text="@string/easy" />
+
+        <Button
+            android:id="@+id/btn_normal_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:backgroundTint="#FF9800"
+            android:text="@string/normal" />
+
+        <Button
+            android:id="@+id/btn_hard_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:backgroundTint="#F44336"
+            android:text="@string/hard" />
+    </LinearLayout>
+</layout>
